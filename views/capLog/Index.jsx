@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultLayout from "../layouts/DefaultLayout";
+import DefaultLayout from "../layouts/DefaultLayouts";
 
 function Index(props) {
   // can't use hooks or state
@@ -12,14 +12,14 @@ function Index(props) {
         </div>
         {/* buttons */}
         <div className="d-flex">
-          <a href="/capLog/new">
-            <button type="button" class="btn btn-outline-primary mx-3">
+          <a href="/caplogs/new">
+            <button type="button" className="btn btn-outline-primary mx-3">
               Add...
             </button>
           </a>
-          <form action="/capLog/clear?_method=DELETE" method="POST">
-            <button class="btn btn-outline-danger">CLEAR</button>
-          </form>
+          {/* <form action="/caplogs/clear?_method=DELETE" method="POST">
+            <button className="btn btn-outline-danger">CLEAR</button>
+          </form> */}
         </div>
         
         <ul
@@ -32,12 +32,12 @@ function Index(props) {
                 className="capLog-item shadow d-flex flex-wrap justify-content-around my-3 align-items-center"
                 key={index}
               >
-                <a href={`/capLog/${capLog._id}`}>
+                <a href={`/caplogs/${capLog._id}`}>
                   <strong>Title: {capLog.title}</strong>
                   <div></div>
                   <strong>Entry: {capLog.entry}</strong>
                   <br />
-                  <strong>USS Enterprise: {capLog.shipIsBroken}</strong>{capLog.shipIsBroken ? 'is NOT broken' : 'BROKEN!!!!! FIX IT ASAP BITCH'}
+                  <strong>USS Enterprise: {capLog.shipIsBroken}</strong>{capLog.shipIsBroken ? 'is broken' : 'NOT BROKEN!!!!!'}
                   <br />
                   <strong>Time Stamp: {capLog.ts}</strong>
                   
@@ -48,15 +48,15 @@ function Index(props) {
         </ul>
         {/* buttons */}
         <div className="d-flex">
-          <a href="/capLog/new">
+          <a href="/caplogs/new">
             <button type="button" class="btn btn-outline-primary  mx-3">
               Add...
             </button>
           </a>
 
-          <form action="/capLog/clear?_method=DELETE" method="POST">
-            <button class="btn btn-outline-danger">CLEAR</button>
-          </form>
+          {/* <form action="/caplogs/clear?_method=DELETE" method="POST">
+            <button className="btn btn-outline-danger">CLEAR</button>
+          </form> */}
         </div>
       </div>
     </DefaultLayout>

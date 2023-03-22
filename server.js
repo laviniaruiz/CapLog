@@ -3,18 +3,16 @@ const express = require('express')
 const connectDB = require('./config/db')
 
 const app = express()
-connectDB()
 const PORT = 8084 
-
-const capLogRoutes = require('./routes/capLogRoutes.js')
+connectDB()
 
 const { createEngine } = require('jsx-view-engine')
-
-const methodOverride = require('method-override')
 
 app.set('view engine', 'jsx')
 
 app.engine('jsx', createEngine())
+
+const methodOverride = require('method-override')
 
 app.use(express.urlencoded({extended: true}))
 
@@ -22,14 +20,10 @@ app.use(methodOverride('_method'))
 
 app.use(express.static('public'))
 
-app.use((req,res,next)=> {
-    console.log('inside middleware')
-    console.log(`${req.method} ${req.path}`)     
-    next()
-})
+const capLogRoutes = require('./routes/capLogRoutes.js')
 
 // app.use('/', require('./routes/index'))
-app.use('/capLog', capLogRoutes)
+app.use('/caplogs', capLogRoutes)
 
 // Listen to the given port
 app.listen(PORT, () => {

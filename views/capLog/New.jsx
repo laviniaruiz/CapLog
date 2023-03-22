@@ -10,7 +10,7 @@ function New() {
   return (
     <div>
       <h1>New Captains Log</h1>
-      <form action="/capLog" method="POST">
+      <form action="/caplogs" method="POST">
         <label htmlFor="ttl">Title:</label>
         <br />
         <input type="text" id="ttl" name="title" />
@@ -29,13 +29,14 @@ function New() {
         <br />
         <br />
 
+        <label htmlFor="shipIsBroken">Ship Is Broken</label>
+
         <input
           type="checkbox"
           id="shipIsBroken"
           name="shipIsBroken"
-          value="shipIsBroken"
+          // value="shipIsBroken"
         ></input>
-        <label htmlFor="shipIsBroken">Ship Is Broken</label>
         <br></br>
         <br />
         <br />

@@ -49,7 +49,7 @@ module.exports.create = async (req, res) => {
     console.log(err);
   }
 
-  res.redirect("/capLog");
+  res.redirect("/caplogs");
 };
 
 // DELETE /capLog/:name
@@ -58,7 +58,7 @@ module.exports.delete = async(req, res) => {
     console.log("DELETE /capLog/:id");
     await CapLog.findByIdAndDelete(req.params.id);
     console.log(req.params.id);
-    res.redirect("/capLog");
+    res.redirect("/caplogs");
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -94,7 +94,7 @@ module.exports.update = async (req, res) => {
     console.log('inside update')
     console.log(req.body)
     await CapLog.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/capLog/${req.params.id}`);
+    res.redirect(`/caplogs/${req.params.id}`);
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -106,7 +106,7 @@ module.exports.seed = async (req, res) => {
   try {
     await CapLog.deleteMany({}); // Keep empty to delete everything
     CapLog.create(capLog);
-    res.redirect("/capLog");
+    res.redirect("/caplogs");
   } catch (err) {
     console.log(err);
     res.send(err.message);
@@ -117,7 +117,7 @@ module.exports.clear = async (req, res) => {
   console.log("DELETE /capLog/clear");
   try {
     await CapLog.deleteMany({});
-    res.redirect("/capLog");
+    res.redirect("/caplogs");
   } catch (err) {
     console.log(err);
     res.send(err.message);
